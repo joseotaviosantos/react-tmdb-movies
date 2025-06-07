@@ -6,6 +6,8 @@ import { setMoviesList, setFetchError } from 'store/slices/movieSlice';
 
 import { getPopularMovies } from 'services/movieApi';
 
+import { MovieCard } from 'components/movieList/card';
+
 export const HomePage = () => {
   const dispatch = useDispatch<AppDispatch>();
   const popularMoviesState = useSelector(
@@ -29,6 +31,15 @@ export const HomePage = () => {
     getPopularMoviesData();
   }, []);
 
-  console.log('POP MOVIE STATE', popularMoviesState);
-  return <div>{JSON.stringify(popularMoviesState.results)}</div>;
+  return (
+    <>
+      {popularMoviesState.results.map((item) => (
+        <MovieCard
+          imageUrl={item?.poster_path}
+          movieTitle={item?.title}
+          voteAverage={item?.vote_average}
+        />
+      ))}
+    </>
+  );
 };
