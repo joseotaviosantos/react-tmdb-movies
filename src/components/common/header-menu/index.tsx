@@ -1,20 +1,25 @@
-import CameraIcon from 'assets/icon/clapperboard-icon';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 import { MenuBtn } from './styles';
 
 import { RowContainer } from 'styles/common';
 
 export const HeaderMenu = () => {
-  const onMenuItemPress = (id: string) => {
-    console.log('MENU PRESSED!', id);
-  };
+  const navigate = useNavigate();
+  const location = useLocation();
 
   return (
     <RowContainer>
-      <MenuBtn isSelected onClick={() => onMenuItemPress('home')}>
+      <MenuBtn
+        isSelected={location.pathname === '/'}
+        onClick={() => navigate('/')}
+      >
         Home
       </MenuBtn>
-      <MenuBtn isSelected={false} onClick={() => onMenuItemPress('favoritos')}>
+      <MenuBtn
+        isSelected={location.pathname === '/favorites'}
+        onClick={() => navigate('/favorites')}
+      >
         Favoritos
       </MenuBtn>
     </RowContainer>
