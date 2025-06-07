@@ -9,7 +9,7 @@ import {
 interface IMovieCardProps {
   imageUrl: string;
   movieTitle: string;
-  voteAverage: number;
+  voteAverage: string;
 }
 
 export const MovieCard = ({

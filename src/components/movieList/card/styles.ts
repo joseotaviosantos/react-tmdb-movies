@@ -12,7 +12,7 @@ export const CardContainer = styled.div`
 
 export const CardImageContainer = styled.img`
   width: 100%;
-  height: 80%;
+  height: 78%;
   object-fit: cover;
   object-position: top;
 `;
@@ -24,5 +24,5 @@ export const FooterOverlay = styled.div`
 
 export const MovieTitle = styled.h5`
   line-height: 17px;
-  margin: 0px 0px 4px 0px;
+  margin: 0px 0px 6px 0px;
 `;
