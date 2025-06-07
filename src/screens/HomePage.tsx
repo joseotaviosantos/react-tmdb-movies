@@ -1,16 +1,34 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+
+import type { RootState, AppDispatch } from 'store';
+import { setMoviesList, setFetchError } from 'store/slices/movieSlice';
 
 import { getPopularMovies } from 'services/movieApi';
 
 export const HomePage = () => {
-  const [resultsPage, setResultsPage] = useState(1);
+  const dispatch = useDispatch<AppDispatch>();
+  const popularMoviesState = useSelector(
+    (state: RootState) => state.popularMovies
+  );
+
   useEffect(() => {
     const getPopularMoviesData = async () => {
-      const res = await getPopularMovies(resultsPage);
-      console.log('RES', res);
+      try {
+        const res = await getPopularMovies(1);
+
+        if (res) {
+          dispatch(setMoviesList(res));
+        }
+      } catch (error) {
+        dispatch(setFetchError('Error fetching popular movies'));
+        console.log('ERR', error);
+      }
     };
 
     getPopularMoviesData();
   }, []);
-  return <div>HomePage</div>;
+
+  console.log('POP MOVIE STATE', popularMoviesState);
+  return <div>{JSON.stringify(popularMoviesState.results)}</div>;
 };

@@ -6,7 +6,7 @@ export const HeaderContainer = styled.div`
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  padding: 10px 20px;
+  padding: 16px 20px;
 `;
 
 export const SearchInput = styled.input`

@@ -1,14 +1,14 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Provider } from 'react-redux';
+import { store } from 'store';
 
 import { HomePage, SearchPage, MovieDetailsPage, FavoritePage } from 'screens';
-
-import './App.css';
 
 import { AppLayout } from './components/layout';
 
 function App() {
   return (
-    <div className="App">
+    <Provider store={store}>
       <Router>
         <AppLayout>
           <Routes>
@@ -19,7 +19,7 @@ function App() {
           </Routes>
         </AppLayout>
       </Router>
-    </div>
+    </Provider>
   );
 }
 
