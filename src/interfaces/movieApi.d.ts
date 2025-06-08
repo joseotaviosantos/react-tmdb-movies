@@ -1,5 +1,5 @@
 import { IMovieItem, IMovieDetailItem } from './movie';
-export interface IGetPopularMoviesRes {
+export interface IGetMoviesRes {
   page: number;
   results: IMovieItem[];
   total_pages: number;

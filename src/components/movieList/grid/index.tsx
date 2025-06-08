@@ -1,7 +1,5 @@
 import { IShortMovieItem } from 'interfaces/favoriteState';
 
-import { useMovieData } from 'hooks/useMovieData';
-
 import { MovieCard } from 'components/movieList/card';
 import { Button } from 'components/button';
 
@@ -9,12 +7,15 @@ import { GridContainer, GridFooter } from './styles';
 
 interface IMovieGridProps {
   movieList: IShortMovieItem[];
-  showPagination?: boolean;
+  hidePaginationAction?: boolean;
+  onPaginationPress?: () => void;
 }
 
-export const MovieGrid = ({ movieList, showPagination }: IMovieGridProps) => {
-  const { fetchPopularMoviesData } = useMovieData();
-
+export const MovieGrid = ({
+  movieList,
+  hidePaginationAction,
+  onPaginationPress,
+}: IMovieGridProps) => {
   const renderGridItems = () => {
     return movieList.map((item) => {
       return (
@@ -32,12 +33,12 @@ export const MovieGrid = ({ movieList, showPagination }: IMovieGridProps) => {
   return (
     <>
       <GridContainer>{renderGridItems()}</GridContainer>
-      {showPagination && (
+      {onPaginationPress && !hidePaginationAction && (
         <GridFooter>
           <Button
             title="Carregar mais"
             icon="more"
-            onClick={fetchPopularMoviesData}
+            onClick={onPaginationPress}
           />
         </GridFooter>
       )}

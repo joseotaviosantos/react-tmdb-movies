@@ -6,8 +6,12 @@ import { MovieGrid } from 'components/movieList/grid';
 import { ActivityIndicator } from 'components/activity-indicator';
 
 export const HomePage = () => {
-  const { isLoading, popularMoviesState, getPopularMoviesData } =
-    useMovieData();
+  const {
+    isLoading,
+    popularMoviesState,
+    getPopularMoviesData,
+    fetchPopularMoviesData,
+  } = useMovieData();
 
   useEffect(() => {
     getPopularMoviesData(1);
@@ -17,7 +21,8 @@ export const HomePage = () => {
     <>
       <MovieGrid
         movieList={popularMoviesState.results}
-        showPagination={!isLoading}
+        hidePaginationAction={isLoading}
+        onPaginationPress={fetchPopularMoviesData}
       />
       {isLoading && <ActivityIndicator />}
     </>

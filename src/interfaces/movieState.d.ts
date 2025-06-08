@@ -1,8 +1,8 @@
 import { IMovieItem } from './movie';
-import { IGetPopularMoviesRes } from './movieApi';
+import { IGetMoviesRes } from './movieApi';
 import { ReqStatus } from './api';
 
 export interface IMovieState
-  extends Pick<IGetPopularMoviesRes, 'results' | 'page'> {
+  extends Pick<IGetMoviesRes, 'results' | 'page' | 'total_results'> {
   errorMessage: string | null;
 }
