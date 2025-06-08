@@ -4,20 +4,20 @@ import { store } from 'store';
 
 import { HomePage, SearchPage, MovieDetailsPage, FavoritePage } from 'screens';
 
-import { AppLayout } from './components/layout';
+import { RootLayout } from './components/layout';
 
 function App() {
   return (
     <Provider store={store}>
       <Router>
-        <AppLayout>
+        <RootLayout>
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/search" element={<SearchPage />} />
             <Route path="/movieDetails/:id" element={<MovieDetailsPage />} />
             <Route path="/favorites" element={<FavoritePage />} />
           </Routes>
-        </AppLayout>
+        </RootLayout>
       </Router>
     </Provider>
   );
