@@ -5,7 +5,7 @@ import { useMovieDetail } from 'hooks/useMovieDetail';
 import { MovieDetailLayout } from 'components/layout';
 import { Backdrop } from 'components/backdrop';
 import { MovieDetail } from 'components/movieDetail';
-import { ActivityIndicator } from 'components/activity-indicator';
+import { ActivityIndicator } from 'components/activityIndicator';
 
 export const MovieDetailsPage = () => {
   const { id } = useParams();

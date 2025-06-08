@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 import { useMovieData } from 'hooks/useMovieData';
 
 import { MovieGrid } from 'components/movieList/grid';
-import { ActivityIndicator } from 'components/activity-indicator';
+import { ActivityIndicator } from 'components/activityIndicator';
 
 export const HomePage = () => {
   const {

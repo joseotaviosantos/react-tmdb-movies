@@ -4,7 +4,7 @@ import { useMovieSearch } from 'hooks/useMovieSearch';
 
 import { MovieGrid } from 'components/movieList/grid';
 import { SearchResume } from 'components/movieList/searchResume';
-import { ActivityIndicator } from 'components/activity-indicator';
+import { ActivityIndicator } from 'components/activityIndicator';
 
 export const SearchPage = () => {
   const [searchParams] = useSearchParams();
@@ -21,7 +21,7 @@ export const SearchPage = () => {
       />
       <MovieGrid
         movieList={movieList}
-        hidePaginationAction={isLoading}
+        hidePaginationAction={isLoading || movieMeta?.totalResults === 0}
         onPaginationPress={updateMovieList}
       />
       {isLoading && <ActivityIndicator />}
