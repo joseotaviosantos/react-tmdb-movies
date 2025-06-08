@@ -17,7 +17,7 @@ export const EmptyList = () => {
   const navigate = useNavigate();
 
   return (
-    <Container>
+    <Container data-testid="Grid_Empty">
       <ClapperboardAltIcon />
       <Title>Nenhum filme favorito ainda</Title>
       <Subtitle>

@@ -1,15 +1,10 @@
 import { screen, fireEvent } from '@testing-library/react';
 
-import { renderWithProviders } from 'utils/testUtils';
+import { renderWithProviders, makeMovieMock } from 'utils/testUtils';
 
 import { MovieCard } from '.';
 
-const movieMock = {
-  movieId: 552524,
-  imageUrl: '/mockUrl.jpg',
-  movieTitle: 'Test Movie',
-  voteAverage: 5.87,
-};
+const movieMock: any = makeMovieMock();
 
 const mockNavigate = jest.fn();
 
@@ -26,7 +21,7 @@ describe('Movie card component', () => {
     makeSut();
 
     const image = screen.getByRole('img');
-    const movieTitle = screen.getByText('Test Movie');
+    const movieTitle = screen.getByText('Test Movie 1');
     const averageBadge = screen.getByText('5.9');
 
     expect(image).toBeInTheDocument();
@@ -40,6 +35,6 @@ describe('Movie card component', () => {
     const movieCard = getByTestId('MovieCard_Container');
 
     fireEvent.click(movieCard);
-    expect(mockNavigate).toHaveBeenCalledWith('/movieDetails/552524');
+    expect(mockNavigate).toHaveBeenCalledWith('/movieDetails/999901');
   });
 });
