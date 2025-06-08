@@ -1,4 +1,6 @@
 import { Badge } from 'components/badge';
+import { FavoriteAction } from '../favorite';
+
 import {
   CardContainer,
   CardImageContainer,
@@ -26,6 +28,7 @@ export const MovieCard = ({
         <MovieTitle>{movieTitle || ''}</MovieTitle>
         <Badge contentValue={voteAverage} />
       </FooterOverlay>
+      <FavoriteAction isFavorited={false} />
     </CardContainer>
   );
 };
