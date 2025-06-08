@@ -6,13 +6,6 @@ import { Button } from 'components/button';
 
 import { Container, Title, Subtitle } from './styles';
 
-interface IMovieCardProps {
-  movieId: number;
-  imageUrl: string;
-  movieTitle: string;
-  voteAverage: number;
-}
-
 export const EmptyList = () => {
   const navigate = useNavigate();
 
