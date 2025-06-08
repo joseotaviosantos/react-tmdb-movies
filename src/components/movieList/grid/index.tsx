@@ -18,6 +18,7 @@ export const MovieGrid = () => {
       return (
         <MovieCard
           key={item?.id}
+          movieId={item?.id}
           imageUrl={item?.poster_path}
           movieTitle={item?.title}
           voteAverage={parsedAverage}

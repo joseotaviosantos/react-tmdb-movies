@@ -9,12 +9,14 @@ import {
 } from './styles';
 
 interface IMovieCardProps {
+  movieId: number;
   imageUrl: string;
   movieTitle: string;
   voteAverage: string;
 }
 
 export const MovieCard = ({
+  movieId,
   imageUrl,
   movieTitle,
   voteAverage,
@@ -28,7 +30,14 @@ export const MovieCard = ({
         <MovieTitle>{movieTitle || ''}</MovieTitle>
         <Badge contentValue={voteAverage} />
       </FooterOverlay>
-      <FavoriteAction isFavorited={false} />
+      <FavoriteAction
+        movieItem={{
+          id: movieId,
+          title: movieTitle,
+          poster_path: imageUrl,
+          vote_average: voteAverage,
+        }}
+      />
     </CardContainer>
   );
 };

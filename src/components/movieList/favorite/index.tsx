@@ -1,6 +1,9 @@
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
-import type { AppDispatch } from 'store';
+import type { AppDispatch, RootState } from 'store';
+import { setFavorite, removeFavorite } from 'store/slices/favoriteSlice';
+
+import { ShortMovieItem } from 'interfaces/favoriteState';
 
 import HeartFilledIcon from 'assets/icon/heart-filled-icon';
 import HeartOutlinedIcon from 'assets/icon/heart-outlined-icon';
@@ -8,18 +11,30 @@ import HeartOutlinedIcon from 'assets/icon/heart-outlined-icon';
 import { FavoriteContainer } from './styles';
 
 interface IFavoriteActionProps {
-  isFavorited: boolean;
-  itemId?: string;
+  movieItem: ShortMovieItem;
 }
 
-export const FavoriteAction = ({
-  isFavorited = false,
-  itemId,
-}: IFavoriteActionProps) => {
+export const FavoriteAction = ({ movieItem }: IFavoriteActionProps) => {
   const dispatch = useDispatch<AppDispatch>();
 
+  const favoritesState = useSelector((state: RootState) => state.favorites);
+
+  const isFavorited = favoritesState.favoriteList.find(
+    (item) => item.id === movieItem.id
+  );
+
+  const onFavoritePress = () => {
+    if (!movieItem.id) return;
+
+    if (!isFavorited) {
+      return dispatch(setFavorite(movieItem));
+    }
+
+    return dispatch(removeFavorite(movieItem));
+  };
+
   return (
-    <FavoriteContainer>
+    <FavoriteContainer onClick={onFavoritePress}>
       {isFavorited ? <HeartFilledIcon /> : <HeartOutlinedIcon />}
     </FavoriteContainer>
   );

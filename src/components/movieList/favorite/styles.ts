@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const FavoriteContainer = styled.div`
+export const FavoriteContainer = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -11,4 +11,5 @@ export const FavoriteContainer = styled.div`
   position: absolute;
   top: 10px;
   right: 10px;
+  cursor: pointer;
 `;
