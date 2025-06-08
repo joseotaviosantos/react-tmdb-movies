@@ -7,6 +7,11 @@ export const HeaderContainer = styled.div`
   align-items: center;
   justify-content: space-between;
   padding: 16px 20px;
+
+  @media (max-width: 768px) {
+    justify-content: center;
+    gap: 20px;
+  }
 `;
 
 export const SearchInput = styled.input`
