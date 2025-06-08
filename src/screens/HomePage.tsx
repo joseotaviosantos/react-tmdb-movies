@@ -1,36 +1,25 @@
 import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
 
-import type { AppDispatch, RootState } from 'store';
-import { setMoviesList, setFetchError } from 'store/slices/movieSlice';
-
-import { getPopularMovies } from 'services/movieApi';
+import { useMovieData } from 'hooks/useMovieData';
 
 import { MovieGrid } from 'components/movieList/grid';
+import { ActivityIndicator } from 'components/activity-indicator';
 
 export const HomePage = () => {
-  const dispatch = useDispatch<AppDispatch>();
-
-  const popularMoviesState = useSelector(
-    (state: RootState) => state.popularMovies
-  );
+  const { isLoading, popularMoviesState, getPopularMoviesData } =
+    useMovieData();
 
   useEffect(() => {
-    const getPopularMoviesData = async () => {
-      try {
-        const res = await getPopularMovies(1);
-
-        if (res) {
-          dispatch(setMoviesList(res));
-        }
-      } catch (error) {
-        dispatch(setFetchError('Error fetching popular movies'));
-        console.log('ERR', error);
-      }
-    };
-
-    getPopularMoviesData();
+    getPopularMoviesData(1);
   }, []);
 
-  return <MovieGrid movieList={popularMoviesState.results} />;
+  return (
+    <>
+      <MovieGrid
+        movieList={popularMoviesState.results}
+        showPagination={!isLoading}
+      />
+      {isLoading && <ActivityIndicator />}
+    </>
+  );
 };

@@ -1,18 +1,20 @@
-import { useSelector } from 'react-redux';
-
-import type { RootState } from 'store';
-
 import { IShortMovieItem } from 'interfaces/favoriteState';
 
-import { MovieCard } from 'components/movieList/card';
+import { useMovieData } from 'hooks/useMovieData';
 
-import { GridContainer } from './styles';
+import { MovieCard } from 'components/movieList/card';
+import { Button } from 'components/button';
+
+import { GridContainer, GridFooter } from './styles';
 
 interface IMovieGridProps {
   movieList: IShortMovieItem[];
+  showPagination?: boolean;
 }
 
-export const MovieGrid = ({ movieList }: IMovieGridProps) => {
+export const MovieGrid = ({ movieList, showPagination }: IMovieGridProps) => {
+  const { fetchPopularMoviesData } = useMovieData();
+
   const renderGridItems = () => {
     return movieList.map((item) => {
       return (
@@ -27,5 +29,18 @@ export const MovieGrid = ({ movieList }: IMovieGridProps) => {
     });
   };
 
-  return <GridContainer>{renderGridItems()}</GridContainer>;
+  return (
+    <>
+      <GridContainer>{renderGridItems()}</GridContainer>
+      {showPagination && (
+        <GridFooter>
+          <Button
+            title="Carregar mais"
+            icon="more"
+            onClick={fetchPopularMoviesData}
+          />
+        </GridFooter>
+      )}
+    </>
+  );
 };
