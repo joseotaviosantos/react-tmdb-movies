@@ -8,7 +8,7 @@ interface IButtonProps {
   title: string;
   icon?: 'more' | 'heart';
   color?: 'primary' | 'secondary';
-  onClick: () => void;
+  onClick: (e: React.MouseEvent) => void;
 }
 
 export const Button = ({

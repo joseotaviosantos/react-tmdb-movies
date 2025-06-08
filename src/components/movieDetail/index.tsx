@@ -1,4 +1,7 @@
 import { IMovieDetailItem } from 'interfaces/movie';
+import { IShortMovieItem } from 'interfaces/favoriteState';
+
+import { useFavoriteData } from 'hooks/useFavoriteData';
 
 import { Badge } from 'components/badge';
 import { Button } from 'components/button';
@@ -30,6 +33,19 @@ export const MovieDetail = ({
   release_date,
   vote_average,
 }: IMovieDetailProps) => {
+  const shortMovieItem: IShortMovieItem = {
+    id: id,
+    title: title,
+    poster_path: poster_path,
+    vote_average: vote_average,
+  };
+
+  const { isFavorited, onFavoritePress } = useFavoriteData(shortMovieItem);
+
+  const buttonText = isFavorited
+    ? 'Remover dos favoritos'
+    : 'Adicionar aos favoritos';
+
   return (
     <Container>
       <Title>{title}</Title>
@@ -47,10 +63,10 @@ export const MovieDetail = ({
       <Subtitle>Sinopse</Subtitle>
       <Description style={{ fontWeight: 300 }}>{overview}</Description>
       <Button
-        title="Adicionar aos favoritos"
+        title={buttonText}
         icon="heart"
         color="secondary"
-        onClick={() => console.log('CLICKED')}
+        onClick={onFavoritePress}
       />
     </Container>
   );
