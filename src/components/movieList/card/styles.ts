@@ -8,6 +8,7 @@ export const CardContainer = styled.div`
   border-radius: 8px;
   overflow: hidden;
   background-color: #2d394a;
+  cursor: pointer;
 `;
 
 export const CardImageContainer = styled.img`

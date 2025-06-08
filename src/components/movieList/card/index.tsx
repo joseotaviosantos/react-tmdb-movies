@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom';
 import { Badge } from 'components/badge';
 import { FavoriteAction } from '../favorite';
 
@@ -21,10 +22,12 @@ export const MovieCard = ({
   movieTitle,
   voteAverage,
 }: IMovieCardProps) => {
+  const navigate = useNavigate();
+
   return (
-    <CardContainer>
+    <CardContainer onClick={() => navigate(`movieDetails/${movieId}`)}>
       <CardImageContainer
-        src={`${process.env.REACT_APP_TMDB_BASE_IMAGE}${imageUrl}` || ''}
+        src={`${process.env.REACT_APP_TMDB_BASE_POSTER}${imageUrl}` || ''}
       />
       <FooterOverlay>
         <MovieTitle>{movieTitle || ''}</MovieTitle>

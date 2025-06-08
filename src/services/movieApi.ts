@@ -1,6 +1,6 @@
 import api from './apiConfig';
 
-import { IGetPopularMoviesRes } from 'interfaces/movieApi';
+import { IGetPopularMoviesRes, IGetMovieDetailRes } from 'interfaces/movieApi';
 
 export const getPopularMovies = async (
   pageNumber: number
@@ -11,6 +11,18 @@ export const getPopularMovies = async (
         page: pageNumber,
       },
     });
+
+    return response.data;
+  } catch (error) {
+    throw error;
+  }
+};
+
+export const getMovieDetails = async (
+  movieId: string
+): Promise<IGetMovieDetailRes> => {
+  try {
+    const response = await api.get(`/movie/${movieId}`);
 
     return response.data;
   } catch (error) {
