@@ -24,7 +24,7 @@ export const Button = ({
       <RowContainer>
         {icon && (
           <IconContainer>
-            {icon === 'heart' ? <HeartFilledIcon /> : <MoreIcon />}
+            {icon === 'heart' ? <HeartFilledIcon inverted /> : <MoreIcon />}
           </IconContainer>
         )}
         {title}
