@@ -2,26 +2,26 @@ import { useSelector } from 'react-redux';
 
 import type { RootState } from 'store';
 
+import { IShortMovieItem } from 'interfaces/favoriteState';
+
 import { MovieCard } from 'components/movieList/card';
 
 import { GridContainer } from './styles';
 
-export const MovieGrid = () => {
-  const popularMoviesState = useSelector(
-    (state: RootState) => state.popularMovies
-  );
+interface IMovieGridProps {
+  movieList: IShortMovieItem[];
+}
 
+export const MovieGrid = ({ movieList }: IMovieGridProps) => {
   const renderGridItems = () => {
-    return popularMoviesState.results.map((item) => {
-      const parsedAverage = item?.vote_average.toFixed(1);
-
+    return movieList.map((item) => {
       return (
         <MovieCard
           key={item?.id}
           movieId={item?.id}
           imageUrl={item?.poster_path}
           movieTitle={item?.title}
-          voteAverage={parsedAverage}
+          voteAverage={item?.vote_average}
         />
       );
     });

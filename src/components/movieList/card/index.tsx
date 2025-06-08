@@ -12,7 +12,7 @@ interface IMovieCardProps {
   movieId: number;
   imageUrl: string;
   movieTitle: string;
-  voteAverage: string;
+  voteAverage: number;
 }
 
 export const MovieCard = ({
@@ -28,7 +28,7 @@ export const MovieCard = ({
       />
       <FooterOverlay>
         <MovieTitle>{movieTitle || ''}</MovieTitle>
-        <Badge contentValue={voteAverage} />
+        <Badge contentValue={voteAverage.toFixed(1)} />
       </FooterOverlay>
       <FavoriteAction
         movieItem={{

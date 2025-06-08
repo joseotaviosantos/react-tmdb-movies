@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-import { IFavoriteState, ShortMovieItem } from 'interfaces/favoriteState';
+import { IFavoriteState, IShortMovieItem } from 'interfaces/favoriteState';
 
 const FAVORITE_LOCAL_STORAGE_KEY = 'favoriteList';
 
@@ -14,14 +14,14 @@ const favoriteSlice = createSlice({
   name: 'favoriteSlice',
   initialState: INITIAL_STATE,
   reducers: {
-    setFavorite(state, action: PayloadAction<ShortMovieItem>) {
+    setFavorite(state, action: PayloadAction<IShortMovieItem>) {
       state.favoriteList = [...state.favoriteList, action.payload];
       localStorage.setItem(
         FAVORITE_LOCAL_STORAGE_KEY,
         JSON.stringify(state.favoriteList)
       );
     },
-    removeFavorite(state, action: PayloadAction<ShortMovieItem>) {
+    removeFavorite(state, action: PayloadAction<IShortMovieItem>) {
       const newList = state.favoriteList.filter(
         (item) => item.id !== action.payload.id
       );

@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import type { AppDispatch, RootState } from 'store';
 import { setFavorite, removeFavorite } from 'store/slices/favoriteSlice';
 
-import { ShortMovieItem } from 'interfaces/favoriteState';
+import { IShortMovieItem } from 'interfaces/favoriteState';
 
 import HeartFilledIcon from 'assets/icon/heart-filled-icon';
 import HeartOutlinedIcon from 'assets/icon/heart-outlined-icon';
@@ -11,7 +11,7 @@ import HeartOutlinedIcon from 'assets/icon/heart-outlined-icon';
 import { FavoriteContainer } from './styles';
 
 interface IFavoriteActionProps {
-  movieItem: ShortMovieItem;
+  movieItem: IShortMovieItem;
 }
 
 export const FavoriteAction = ({ movieItem }: IFavoriteActionProps) => {

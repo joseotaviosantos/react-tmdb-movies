@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
-import type { AppDispatch } from 'store';
+import type { AppDispatch, RootState } from 'store';
 import { setMoviesList, setFetchError } from 'store/slices/movieSlice';
 
 import { getPopularMovies } from 'services/movieApi';
@@ -10,6 +10,10 @@ import { MovieGrid } from 'components/movieList/grid';
 
 export const HomePage = () => {
   const dispatch = useDispatch<AppDispatch>();
+
+  const popularMoviesState = useSelector(
+    (state: RootState) => state.popularMovies
+  );
 
   useEffect(() => {
     const getPopularMoviesData = async () => {
@@ -28,5 +32,5 @@ export const HomePage = () => {
     getPopularMoviesData();
   }, []);
 
-  return <MovieGrid />;
+  return <MovieGrid movieList={popularMoviesState.results} />;
 };
