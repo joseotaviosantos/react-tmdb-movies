@@ -7,6 +7,6 @@ export const BackdropContainer = styled.img`
   object-fit: cover;
 
   @media (max-width: 1024px) {
-    width: 80%;
+    width: 100%;
   }
 `;
