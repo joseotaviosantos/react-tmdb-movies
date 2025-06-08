@@ -25,7 +25,10 @@ export const MovieCard = ({
   const navigate = useNavigate();
 
   return (
-    <CardContainer onClick={() => navigate(`/movieDetails/${movieId}`)}>
+    <CardContainer
+      data-testid={'MovieCard_Container'}
+      onClick={() => navigate(`/movieDetails/${movieId}`)}
+    >
       <CardImageContainer
         src={`${process.env.REACT_APP_TMDB_BASE_POSTER}${imageUrl}` || ''}
       />
