@@ -39,7 +39,7 @@ export const MovieGrid = ({
       {onPaginationPress && !hidePaginationAction && (
         <GridFooter>
           <Button
-            title="Carregar mais"
+            title="DESCOBRIR MAIS"
             icon="more"
             onClick={onPaginationPress}
           />

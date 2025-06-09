@@ -10,6 +10,9 @@ const mockNavigate = jest.fn();
 
 jest.mock('react-router-dom', () => ({
   useNavigate: () => mockNavigate,
+  useLocation: () => ({
+    pathname: '/favorites',
+  }),
 }));
 
 const makeSut = () => {

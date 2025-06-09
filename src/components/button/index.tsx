@@ -1,5 +1,5 @@
 import HeartFilledIcon from 'assets/icon/heart-filled-icon';
-import MoreIcon from 'assets/icon/more-icon';
+import ChevronDownIcon from 'assets/icon/chevron-down-icon';
 
 import { RowContainer } from 'styles/common';
 import { ButtonContainer, IconContainer } from './styles';
@@ -24,7 +24,11 @@ export const Button = ({
       <RowContainer>
         {icon && (
           <IconContainer>
-            {icon === 'heart' ? <HeartFilledIcon inverted /> : <MoreIcon />}
+            {icon === 'heart' ? (
+              <HeartFilledIcon inverted />
+            ) : (
+              <ChevronDownIcon />
+            )}
           </IconContainer>
         )}
         {title}

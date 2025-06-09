@@ -10,6 +10,9 @@ const mockNavigate = jest.fn();
 
 jest.mock('react-router-dom', () => ({
   useNavigate: () => mockNavigate,
+  useLocation: () => ({
+    pathname: '/favorites',
+  }),
 }));
 
 const makeSut = (movieList: any, hidePaginationAction: any) => {
@@ -47,7 +50,7 @@ describe('Movie card component', () => {
     const movieListMock: any = makeMovieMock('list', 10);
     const { getByText } = makeSut(movieListMock, false);
 
-    const gridButton = getByText('Carregar mais');
+    const gridButton = getByText('DESCOBRIR MAIS');
     fireEvent.click(gridButton);
     expect(mockPaginationPress).toHaveBeenCalled();
   });
