@@ -7,6 +7,7 @@ import {
   CardImageContainer,
   FooterOverlay,
   MovieTitle,
+  Highlight,
 } from './styles';
 
 interface IMovieCardProps {
@@ -14,6 +15,7 @@ interface IMovieCardProps {
   imageUrl: string;
   movieTitle: string;
   voteAverage: number;
+  searchedQuery?: string;
 }
 
 export const MovieCard = ({
@@ -21,8 +23,25 @@ export const MovieCard = ({
   imageUrl,
   movieTitle,
   voteAverage,
+  searchedQuery,
 }: IMovieCardProps) => {
   const navigate = useNavigate();
+
+  const getMovieTitle = () => {
+    if (!movieTitle) return '';
+
+    if (!searchedQuery) return movieTitle;
+
+    const titleParts = movieTitle.split(/(\W+)/);
+
+    return titleParts.map((part) => {
+      const isHighlighted =
+        part.toLowerCase() === searchedQuery?.toLowerCase() ||
+        part.toLowerCase().includes(searchedQuery?.toLowerCase());
+
+      return <>{isHighlighted ? <Highlight>{part}</Highlight> : part}</>;
+    });
+  };
 
   return (
     <CardContainer
@@ -33,7 +52,7 @@ export const MovieCard = ({
         src={`${process.env.REACT_APP_TMDB_BASE_POSTER}${imageUrl}` || ''}
       />
       <FooterOverlay>
-        <MovieTitle>{movieTitle || ''}</MovieTitle>
+        <MovieTitle>{getMovieTitle()}</MovieTitle>
         <Badge contentValue={voteAverage.toFixed(1)} />
       </FooterOverlay>
       <FavoriteAction

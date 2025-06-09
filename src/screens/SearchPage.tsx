@@ -23,6 +23,7 @@ export const SearchPage = () => {
         movieList={movieList}
         hidePaginationAction={isLoading || movieMeta?.totalResults === 0}
         onPaginationPress={updateMovieList}
+        searchedQuery={queryParam || ''}
       />
       {isLoading && <ActivityIndicator />}
     </>

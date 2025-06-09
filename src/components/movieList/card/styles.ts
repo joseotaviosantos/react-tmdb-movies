@@ -26,4 +26,12 @@ export const FooterOverlay = styled.div`
 export const MovieTitle = styled.h5`
   line-height: 17px;
   margin: 0px 0px 6px 0px;
+  word-break: break-word;
+  white-space: normal;
+`;
+
+export const Highlight = styled.mark`
+  background-color: orange;
+  border-radius: 2px;
+  padding: 0px 4px;
 `;

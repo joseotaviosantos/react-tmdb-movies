@@ -9,12 +9,14 @@ interface IMovieGridProps {
   movieList: IShortMovieItem[];
   hidePaginationAction?: boolean;
   onPaginationPress?: () => void;
+  searchedQuery?: string;
 }
 
 export const MovieGrid = ({
   movieList,
   hidePaginationAction,
   onPaginationPress,
+  searchedQuery,
 }: IMovieGridProps) => {
   const renderGridItems = () => {
     return movieList.map((item) => {
@@ -25,6 +27,7 @@ export const MovieGrid = ({
           imageUrl={item?.poster_path}
           movieTitle={item?.title}
           voteAverage={item?.vote_average}
+          searchedQuery={searchedQuery}
         />
       );
     });
