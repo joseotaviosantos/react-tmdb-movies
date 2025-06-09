@@ -8,7 +8,7 @@
 ![License](https://img.shields.io/badge/license-MIT-green)
 ![Status](https://img.shields.io/badge/status-em%20desenvolvimento-yellow)
 
-Aplicação React que permite aos usuários explorar filmes, criar listas personalizadas de favoritos e descobrir novos conteúdos através da [API do The Movie Database (TMDB).](https://developers.themoviedb.org/3).
+Aplicação React que permite aos usuários explorar filmes, criar listas personalizadas de favoritos e descobrir novos conteúdos através da [API do The Movie Database (TMDB).](https://developers.themoviedb.org/3)
 
 ## 🧰 Tecnologias utilizadas
 
@@ -29,15 +29,15 @@ Aplicação React que permite aos usuários explorar filmes, criar listas person
 
 ## 📦 Configurações
 
-Para o funcionamento da api, será preciso [criar uma API Key e User Token em:](https://www.themoviedb.org/)
+Para o funcionamento da api, será preciso criar uma API Key e User Token em [https://www.themoviedb.org/](https://www.themoviedb.org/)
 
 Após isso, crie um arquivo .env.local na raiz do projeto, e preencha as seguintes variáveis:
 
 REACT_APP_TMDB_API_BASE_URL="https://api.themoviedb.org/3"
 REACT_APP_TMDB_BASE_POSTER='https://image.tmdb.org/t/p/w300'
 REACT_APP_TMDB_BASE_BACKDROP='https://image.tmdb.org/t/p/original'
-REACT_APP_TMDB_API_KEY=<sua api key>
-REACT_APP_TMDB_API_TOKEN=<seu user token>
+REACT_APP_TMDB_API_KEY='SUA_API_KEY'
+REACT_APP_TMDB_API_TOKEN='SEU_USER_TOKEN'
 
 ## Execução local do projeto
 
@@ -49,16 +49,10 @@ Após finalizar a instalação das dependências, na raiz do projeto execute:
 
 ### `yarn start`
 
-Este comando executará o projeto no navegador em [http://localhost:3000](http://localhost:3000).\
+Este comando executará o projeto no navegador em [http://localhost:3000](http://localhost:3000)
 
 ## Scripts adicionais
 
 ### `yarn test`
 
-Executa o test runner em watch mode.\
-
-## Dependências
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+Executa o test runner em watch mode.
