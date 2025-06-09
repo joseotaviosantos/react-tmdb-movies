@@ -1,45 +1,62 @@
-# Getting Started with Create React App
+# 🎬 Sistema de Filmes com TMDB
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![React](https://img.shields.io/badge/react-18.2.0-61DAFB?logo=react)
+![TypeScript](https://img.shields.io/badge/typescript-5.x-blue?logo=typescript)
+![Redux](https://img.shields.io/badge/redux_toolkit-%5E1.9-purple?logo=redux)
+![Jest](https://img.shields.io/badge/tested_with-jest-99424f.svg?logo=jest)
+![License](https://img.shields.io/badge/license-MIT-green)
+![Status](https://img.shields.io/badge/status-em%20desenvolvimento-yellow)
 
-## Available Scripts
+Aplicação React que permite aos usuários explorar filmes, criar listas personalizadas de favoritos e descobrir novos conteúdos através da [API do The Movie Database (TMDB).](https://developers.themoviedb.org/3).
 
-In the project directory, you can run:
+## 🧰 Tecnologias utilizadas
 
-### `npm start`
+- React19 + TypeScript
+- Redux Toolkit
+- React Router
+- Axios
+- Jest + React Testing Library
+- TMDB API
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## ✅ Funcionalidades
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- Listagem dinâmica de filmes populares
+- Busca de filmes
+- Listagem de favoritos com ordenação
+- Página de detalhes
+- Testes unitários com Jest
 
-### `npm test`
+## 📦 Configurações
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Para o funcionamento da api, será preciso [criar uma API Key e User Token em:](https://www.themoviedb.org/)
 
-### `npm run build`
+Após isso, crie um arquivo .env.local na raiz do projeto, e preencha as seguintes variáveis:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+REACT_APP_TMDB_API_BASE_URL="https://api.themoviedb.org/3"
+REACT_APP_TMDB_BASE_POSTER='https://image.tmdb.org/t/p/w300'
+REACT_APP_TMDB_BASE_BACKDROP='https://image.tmdb.org/t/p/original'
+REACT_APP_TMDB_API_KEY=<sua api key>
+REACT_APP_TMDB_API_TOKEN=<seu user token>
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Execução local do projeto
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Execute o seguinte comando para instalação das dependências:
 
-### `npm run eject`
+### `yarn install`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Após finalizar a instalação das dependências, na raiz do projeto execute:
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### `yarn start`
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Este comando executará o projeto no navegador em [http://localhost:3000](http://localhost:3000).\
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## Scripts adicionais
 
-## Learn More
+### `yarn test`
+
+Executa o test runner em watch mode.\
+
+## Dependências
 
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
