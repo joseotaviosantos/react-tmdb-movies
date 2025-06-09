@@ -1,8 +1,9 @@
 # 🎬 Sistema de Filmes com TMDB
 
-![React](https://img.shields.io/badge/react-18.2.0-61DAFB?logo=react)
-![TypeScript](https://img.shields.io/badge/typescript-5.x-blue?logo=typescript)
-![Redux](https://img.shields.io/badge/redux_toolkit-%5E1.9-purple?logo=redux)
+![React](https://img.shields.io/badge/react-19.1.0-61DAFB?logo=react)
+![TypeScript](https://img.shields.io/badge/typescript-4.9.5-3178C6?logo=typescript)
+![Redux Toolkit](https://img.shields.io/badge/redux--toolkit-2.8.2-purple?logo=redux)
+![React Router](https://img.shields.io/badge/react--router--dom-6.0.0-CA4245?logo=react-router)
 ![Jest](https://img.shields.io/badge/tested_with-jest-99424f.svg?logo=jest)
 ![License](https://img.shields.io/badge/license-MIT-green)
 ![Status](https://img.shields.io/badge/status-em%20desenvolvimento-yellow)
