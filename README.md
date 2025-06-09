@@ -10,6 +10,10 @@
 
 Aplicação React que permite aos usuários explorar filmes, criar listas personalizadas de favoritos e descobrir novos conteúdos através da [API do The Movie Database (TMDB).](https://developers.themoviedb.org/3)
 
+## 🌐 Demo
+
+[https://react-tmdb-movies.vercel.app/](https://react-tmdb-movies.vercel.app/)
+
 ## 🧰 Tecnologias utilizadas
 
 - React19 + TypeScript
@@ -29,15 +33,17 @@ Aplicação React que permite aos usuários explorar filmes, criar listas person
 
 ## 📦 Configurações
 
-Para o funcionamento da api, será preciso criar uma API Key e User Token em [https://www.themoviedb.org/](https://www.themoviedb.org/)
+Para o funcionamento da api, será preciso criar uma API Key e User Token em: [https://www.themoviedb.org/](https://www.themoviedb.org/)
 
 Após isso, crie um arquivo .env.local na raiz do projeto, e preencha as seguintes variáveis:
 
+```env
 REACT_APP_TMDB_API_BASE_URL="https://api.themoviedb.org/3"
-REACT_APP_TMDB_BASE_POSTER='https://image.tmdb.org/t/p/w300'
-REACT_APP_TMDB_BASE_BACKDROP='https://image.tmdb.org/t/p/original'
+REACT_APP_TMDB_BASE_POSTER="https://image.tmdb.org/t/p/w300"
+REACT_APP_TMDB_BASE_BACKDROP="https://image.tmdb.org/t/p/original"
 REACT_APP_TMDB_API_KEY='SUA_API_KEY'
 REACT_APP_TMDB_API_TOKEN='SEU_USER_TOKEN'
+```
 
 ## Execução local do projeto
 
